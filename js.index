@@ -1,0 +1,39 @@
+//Implementação do JavaScript
+
+import { useEffect, useState } from 'react';
+
+export default function Home() {
+  const [heroes, setHeroes] = useState([]);
+
+  useEffect(() => {
+    // Chama a função para buscar os heróis
+    fetchHeroes();
+  }, []);
+
+  // Função para buscar os heróis da API
+  const fetchHeroes = async () => {
+    const HEROES_IDS = [1, 2, 3, 4, 5]; // IDs dos heróis que vamos buscar
+    const results = [];
+
+    for (let id of HEROES_IDS) {
+      const response = await fetch(`https://superheroapi.com/api.php/YOUR_ACCESS_TOKEN/${id}`);
+      const data = await response.json();
+      results.push(data);
+    }
+
+    setHeroes(results); // Atualiza o estado com os heróis
+  };
+
+  return (
+    <div id="heroes">
+      {heroes.map(hero => (
+        <article key={hero.id}>
+          <img src={hero.image.url} alt={hero.name} />
+          <h1>{hero.name}</h1>
+          <p>Intelligence: <span style={{ width: `${hero.powerstats.intelligence}%`, backgroundColor: '#F9B32F' }}></span></p>
+          <p>Strength: <span style={{ width: `${hero.powerstats.strength}%`, backgroundColor: '#FF7C6C' }}></span></p>
+        </article>
+      ))}
+    </div>
+  );
+}
