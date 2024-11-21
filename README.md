@@ -158,6 +158,13 @@ Ao acessar a aplicação em `http://localhost:3000`, você verá a lista de supe
 ## 7. Conclusão
 Este projeto foi reconstruído utilizando Next.js e exibe de forma dinâmica uma lista de super-heróis. Ele utiliza a API do SuperHeroAPI para buscar os dados de heróis específicos, e os exibe de forma interativa e bem estilizada.
 
+## Abaixo você encontra uma imagem rodando no servidor local:
+
+ ![js](https://github.com/user-attachments/assets/0d0690f8-a975-4f6b-98f3-c1fdc3946ecd)
+
+
+
+
 
 
 
